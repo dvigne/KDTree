@@ -1,6 +1,0 @@
-break /home/derickvigne/Documents/GitHub/kdtree/driver.cpp:18
-break /home/derickvigne/Documents/GitHub/kdtree/kdtree.cpp:11
-break /home/derickvigne/Documents/GitHub/kdtree/kdtree.cpp:16
-break /home/derickvigne/Documents/GitHub/kdtree/kdtree.cpp:19
-break /home/derickvigne/Documents/GitHub/kdtree/kdtree.cpp:24
-break /home/derickvigne/Documents/GitHub/kdtree/kdtree.cpp:27
