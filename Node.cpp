@@ -1,4 +1,4 @@
-#include "kdtree.hpp"
+#include "KDTree.hpp"
 #include <cmath>
 
 /////////////////////////////////////////////////
@@ -9,18 +9,6 @@
 
 point Node::getPosition() const {
   return position;
-}
-
-/////////////////////////////////////////////////
-/// @fn int Node::getOccupiedConfidence()
-/// @brief Returns the percent occupied confidency score that an
-/// obstacle exists at this node.
-/// @returns `int` percent occupancy score. Ranges from `0-100`
-/// or `-1` if unknown
-/////////////////////////////////////////////////
-
-int Node::getOccupiedConfidence() const{
-  return occupiedConfidence;
 }
 
 /////////////////////////////////////////////////
@@ -62,7 +50,6 @@ bool Node::operator==(Node& secondNode) {
 /////////////////////////////////////////////////
 void Node::operator=(const Node& secondNode) {
   position = secondNode.getPosition();
-  occupiedConfidence = secondNode.getOccupiedConfidence();
   nodeVisited = secondNode.visited();
 }
 
@@ -76,17 +63,14 @@ void Node::operator=(const Node& secondNode) {
 /////////////////////////////////////////////////
 Node* Node::findNode(point p, uint8_t dimensions, uint32_t index) {
   if(this->getPosition() == p) {
-    printf("Found Node (%d, %d) occu %d\n", this->getPosition()[0], this->getPosition()[1], this->getOccupiedConfidence());
     return this;
   }
 
   else if(this->getPosition()[index % dimensions] > p[index % dimensions]) {
-    printf("Falling Left\n");
     return this->left->findNode(p, dimensions, ++index);
   }
 
   else {
-    printf("Falling Right\n");
     return this->right->findNode(p, dimensions, ++index);
   }
 }

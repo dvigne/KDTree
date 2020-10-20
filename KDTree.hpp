@@ -53,7 +53,6 @@ struct point {
 /////////////////////////////////////////////////
 class Node {
 private:
-  int8_t occupiedConfidence;
   bool nodeVisited = false;
   point position;
 
@@ -78,14 +77,12 @@ public:
   /// @param cNode Node to copy
   /////////////////////////////////////////////////
   Node(const Node& cNode) : position(cNode.getPosition()), occupiedConfidence(cNode.getOccupiedConfidence()), nodeVisited(cNode.visited()){};
-  point getPosition() const;
-  int getOccupiedConfidence() const;
+  point getPosition() const;;
   bool visited() const;
   bool operator<(Node& secondNode);
   bool operator==(Node& secondNode);
   void operator=(const Node& secondNode);
   Node* findNode(point p, uint8_t dimensions, uint32_t index = 0);
-  // void swap(Node& n1, Node& n2);
 };
 
 /////////////////////////////////////////////////
