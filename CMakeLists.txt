@@ -6,7 +6,7 @@ LANGUAGES CXX)
 
 set(CMAKE_CXX_FLAGS "-g")
 
-add_library(kdtree kdtree.hpp kdtree.cpp Node.cpp)
+add_library(KDTree KDTree.hpp KDTree.cpp Node.cpp)
 
 # Supply build directives here by uncommenting and changing 'driver.cpp'
 # to the name of your own implementation
