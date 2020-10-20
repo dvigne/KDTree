@@ -1,4 +1,4 @@
-#include "kdtree.hpp"
+#include "KDTree.hpp"
 #include <utility>
 #include <algorithm>
 

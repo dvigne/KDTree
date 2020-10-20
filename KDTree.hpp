@@ -50,6 +50,23 @@ struct point {
 /////////////////////////////////////////////////
 /// @class Node
 /// @brief datastructure to be added to the kd-tree
+/// @details This concrete class was designed to be overriden
+/// with your own implementation attributes and methods.
+/// This was written with the intent to provide common functionality
+/// that can be extended upon. Example below:
+///
+/// @code
+/// class myNode : public Node {
+///
+/// private:
+///   int newAttr = 0;
+///
+/// public:
+///   myNode(point position, int newAttr, bool visited = false) : Node(position, visited), newAttr(newAttr) {};
+///   int getNewAttr() { return newAttr;};
+/// 
+/// };
+/// @endcode
 /////////////////////////////////////////////////
 class Node {
 private:
@@ -60,24 +77,23 @@ public:
   Node* left;
   Node* right;
   /////////////////////////////////////////////////
-  /// @fn Node::Node(point position, int occupiedConfidence, bool visited = false)
+  /// @fn Node::Node(point position, bool visited = false)
   /// @brief Node constructor
   /// @param position point position of node
-  /// @param occupiedConfidence Percent confidence that a node is occupied by an obstacle.
   /// Helps with optimizing the search algorithm.
   /// ranges from `0-100` and `-1` if unknown
   /// @param visited Optional setting to mark this node as visited
   /////////////////////////////////////////////////
 
-  Node(point position, int occupiedConfidence, bool visited = false) : position(position), occupiedConfidence(occupiedConfidence), nodeVisited(visited){};
+  Node(point position, bool visited = false) : position(position), nodeVisited(visited){};
 
   /////////////////////////////////////////////////
   /// @fn Node::Node(const Node& cNode)
   /// @brief Simple copy constructor for nodes
   /// @param cNode Node to copy
   /////////////////////////////////////////////////
-  Node(const Node& cNode) : position(cNode.getPosition()), occupiedConfidence(cNode.getOccupiedConfidence()), nodeVisited(cNode.visited()){};
-  point getPosition() const;;
+  Node(const Node& cNode) : position(cNode.getPosition()), nodeVisited(cNode.visited()){};
+  point getPosition() const;
   bool visited() const;
   bool operator<(Node& secondNode);
   bool operator==(Node& secondNode);
